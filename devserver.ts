@@ -1,9 +1,9 @@
-import Fastify from 'fastify';
-import { execSync } from 'node:child_process';
-import { existsSync, readFileSync } from 'node:fs';
-import path from 'node:path';
+import Fastify from "fastify";
+import { execSync } from "node:child_process";
+import { existsSync, readFileSync } from "node:fs";
+import path from "node:path";
 
-import FastifyVite from '@fastify/vite';
+import FastifyVite from "@fastify/vite";
 
 const generateSelfSignedCerts = () => {
   const keyname = "selfsigned";
@@ -33,7 +33,7 @@ const generateSelfSignedCerts = () => {
 
   await server.register(FastifyVite, {
     dev: true,
-    root: path.resolve("."),
+    root: import.meta.url,
     spa: true,
   });
 
